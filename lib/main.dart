@@ -1,4 +1,9 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -74,27 +79,26 @@ const List<Choice> choices = const <Choice>[
   const Choice(title: 'Registro de faltas', icon: Icons.directions_walk),
 ];
 
-class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
+class ChoiceCard extends StatefulWidget {
 
   final Choice choice;
+  
+  const ChoiceCard({Key key, this.choice}) : super(key: key);
+
+  
 
   @override
+  _ChoiceCardState createState() => _ChoiceCardState();
+}
+
+class _ChoiceCardState extends State<ChoiceCard> {
+  @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
-    return Card(
-      color: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
-          ],
-        ),
-      ),
-    );
+      final wordPair = WordPair.random();
+      
+
+    return Text(wordPair.asPascalCase);
+
   }
 }
 
