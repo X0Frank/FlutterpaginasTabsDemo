@@ -97,8 +97,21 @@ class _ChoiceCardState extends State<ChoiceCard> {
       final wordPair = WordPair.random();
       
 
-    return Text(wordPair.asPascalCase);
+    return Center(child: Column(children: [
+      TextField(), FlatButton(onPressed: ()=>print("12345") , child: Text("aceptar"))
+
+
+    ]
+    
+    
+    
+    ));
 
   }
 }
+
+
+
+
+
 
