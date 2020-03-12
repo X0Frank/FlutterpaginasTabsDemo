@@ -1,7 +1,7 @@
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+
 
 
 
@@ -14,16 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tractos Aire',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+  
+        primarySwatch: Colors.deepOrange,
       ),
       home: TabbedAppBarSample(),
     );
@@ -38,8 +30,12 @@ class TabbedAppBarSample extends StatelessWidget {
         length: choices.length,
         child: Scaffold(
           appBar: AppBar(
+            
             title: const Text('Tractos'),
+          
             bottom: TabBar(
+            
+
               isScrollable: true,
               tabs: choices.map((Choice choice) {
                 return Tab(
@@ -74,9 +70,9 @@ const List<Choice> choices = const <Choice>[
   const Choice(title: 'Registros', icon: Icons.account_balance),
   const Choice(title: 'Nuevo Tracto', icon: Icons.keyboard),
   const Choice(title: 'Nueva Medicion', icon: Icons.navigation),
-  const Choice(title: 'Configuracion', icon: Icons.comment),
-  const Choice(title: 'Condicion', icon: Icons.directions_railway),
-  const Choice(title: 'Registro de faltas', icon: Icons.directions_walk),
+  //const Choice(title: 'Configuracion', icon: Icons.comment),
+  //const Choice(title: 'Condicion', icon: Icons.directions_railway),
+  //const Choice(title: 'Registro de faltas', icon: Icons.directions_walk),
 ];
 
 class ChoiceCard extends StatefulWidget {
@@ -88,27 +84,75 @@ class ChoiceCard extends StatefulWidget {
   
 
   @override
-  _ChoiceCardState createState() => _ChoiceCardState();
+  _ChoiceCardState createState() {
+
+
+    return _ChoiceCardState();
+  }
 }
 
 class _ChoiceCardState extends State<ChoiceCard> {
   @override
   Widget build(BuildContext context) {
-      final wordPair = WordPair.random();
-      
 
-    return Center(child: Column(children: [
-      TextField(), FlatButton(onPressed: ()=>print("12345") , child: Text("aceptar"))
+   
+
+    
+        return
+          Container(
+          
+        //color: Colors.deepOrange,
+        
+        child: Container(
+
+        
+          
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center ,
+            children: [
+              //Flexible(flex: 1, child: Stack()),
+            
+                RichText(
+                  
+                  text: TextSpan(
+                    style: DefaultTextStyle.of(context).style,
+                    children: <TextSpan>[
+                      TextSpan(text: 'Tracto No', style: TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: ''),
+                  ],
+                ),
+               ),
+          
+              TextField(
+                 cursorColor: Colors.red,
+                 cursorRadius: Radius.circular(16.0),
+                  cursorWidth: 16.0,
+              
+              ),
+               
+              FlatButton(
+                
+                onPressed: ()=>print(TextField) , 
+                child: Text("aceptar")
+              ),
+
+              
+             //Center(child: TextField()), FlatButton(onPressed: ()=>print("12345") , child: Text("aceptar"))
+            ],
+          ),
 
 
-    ]
-    
-    
-    
-    ));
+
+
+        ),
+      );
+  
 
   }
 }
+
+
+
 
 
 
